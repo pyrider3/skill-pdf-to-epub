@@ -1,0 +1,404 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   EPUB 3 / EPUB 2 专业出版级排版样式表 (Master EPUB Stylesheet)
+   适配：Apple Books, Kindle, 微信读书, 多看, Kobo, Thorium 等主流阅读器
+   ========================================================================== */
+
+:root {
+    --primary-color: #991b1b;
+    --primary-light: #fef2f2;
+    --secondary-color: #4b5563;
+    --border-color: #e5e7eb;
+    --text-color: #1f2937;
+    --text-light: #6b7280;
+    --bg-card: #f9fafb;
+    --bg-highlight: #fffbeb;
+    --line-height-base: 1.8;
+}
+
+body {
+    margin: 5% 8%;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Serif CN", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    font-size: 1rem;
+    line-height: var(--line-height-base);
+    color: var(--text-color);
+    text-align: justify;
+    word-break: break-word;
+}
+
+/* 封面与全屏图 */
+.cover-page {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.cover-wrapper img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100vh;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 章节头部 */
+.chapter-header {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2.5em;
+    padding-bottom: 1.2em;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.chapter-number {
+    display: inline-block;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.4em;
+}
+
+h1.chapter-title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0.2em 0 0.3em 0;
+    line-height: 1.35;
+}
+
+.chapter-subtitle {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-style: italic;
+    font-weight: normal;
+    margin-top: 0.2em;
+}
+
+/* 标题系统 */
+h2 {
+    font-size: 1.3rem;
+    color: #111827;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+    padding-left: 10px;
+    border-left: 4px solid var(--primary-color);
+    line-height: 1.4;
+}
+
+h3 {
+    font-size: 1.12rem;
+    color: #374151;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+h4 {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+/* 正文段落 */
+p {
+    margin: 0.6em 0;
+    text-indent: 2em;
+    line-height: var(--line-height-base);
+}
+
+p.no-indent {
+    text-indent: 0;
+}
+
+/* 强调与加粗 */
+strong, b {
+    font-weight: 700;
+    color: #111827;
+}
+
+/* 题词与引言 */
+.dedication-box {
+    margin: 4em auto;
+    max-width: 85%;
+    padding: 2.5em 2em;
+    background: #fafaf9;
+    border-top: 3px solid var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    text-align: center;
+}
+
+.dedication-box p {
+    text-indent: 0;
+    font-size: 1.15rem;
+    line-height: 2.2;
+    color: #292524;
+    font-style: italic;
+    margin: 0.8em 0;
+}
+
+.dedication-slogan {
+    margin-top: 2em;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
+/* 作者简介 */
+.author-card {
+    margin: 2em 0;
+    padding: 1.5em;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.author-avatar {
+    max-width: 160px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 1.2em;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.author-bio {
+    text-align: justify;
+    text-indent: 2em;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* 定理 / 公理 / 推论卡片 */
+.theorem-box {
+    margin: 1.5em 0;
+    padding: 1em 1.2em;
+    background: #fff1f2;
+    border-left: 4px solid #be123c;
+    border-radius: 4px;
+}
+
+.theorem-title {
+    font-weight: 700;
+    color: #9f1239;
+    margin-bottom: 0.4em;
+    font-size: 1.05rem;
+}
+
+.theorem-box p {
+    text-indent: 0;
+    margin: 0.3em 0;
+    line-height: 1.7;
+    color: #4c0519;
+}
+
+/* 数学公式展示 */
+.math-display {
+    margin: 1.4em auto;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.2rem;
+    color: #1e293b;
+    padding: 0.8em;
+    background: #f8fafc;
+    border-radius: 6px;
+    border: 1px dashed #cbd5e1;
+    overflow-x: auto;
+}
+
+/* 代码与代码块 */
+pre.code-block {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 1em;
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    margin: 1.2em 0;
+}
+
+/* 楼盘卡片 (附录 B) */
+.property-card {
+    margin: 2em 0;
+    padding: 1.4em;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.property-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 0.4em;
+}
+
+.property-meta {
+    margin: 0.6em 0;
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.property-meta p {
+    margin: 0.2em 0;
+    text-indent: 0;
+}
+
+/* 列表排版 */
+ul, ol {
+    margin: 0.8em 0;
+    padding-left: 2em;
+}
+
+li {
+    margin: 0.4em 0;
+    line-height: var(--line-height-base);
+}
+
+/* 图表与插图系统 */
+.figure-container {
+    margin: 2em auto;
+    text-align: center;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.figure-container img {
+    max-width: 95%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+.figure-caption {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    margin-top: 0.6em;
+    text-align: center;
+    text-indent: 0;
+}
+
+/* 脚注系统 */
+.footnote-section {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.88rem;
+    color: var(--text-light);
+}
+
+.footnote-item {
+    margin: 0.5em 0;
+    text-indent: 0;
+    line-height: 1.6;
+}
+
+.footnote-ref {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    vertical-align: super;
+    font-size: 0.75rem;
+    margin: 0 2px;
+}
+
+/* 目录 */
+.toc-list {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 2.2;
+}
+
+.toc-item {
+    margin: 0.4em 0;
+    border-bottom: 1px dashed #f1f5f9;
+    padding-bottom: 0.2em;
+}
+
+.toc-item a {
+    color: #1f2937;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.toc-item a:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   暗黑模式优化 (Dark Mode)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #e5e7eb;
+        --text-light: #9ca3af;
+        --border-color: #374151;
+        --bg-card: #1f2937;
+        --bg-highlight: #292524;
+    }
+    body {
+        background-color: #111827;
+        color: #e5e7eb;
+    }
+    h1.chapter-title, h2, h3, h4, strong, b {
+        color: #f9fafb;
+    }
+    .dedication-box {
+        background: #1c1917;
+        border-color: #991b1b;
+    }
+    .dedication-box p {
+        color: #e7e5e4;
+    }
+    .author-card, .property-card {
+        background: #1f2937;
+        border-color: #374151;
+    }
+    .author-bio {
+        color: #d1d5db;
+    }
+    .theorem-box {
+        background: #311318;
+        border-color: #f43f5e;
+    }
+    .theorem-title {
+        color: #fda4af;
+    }
+    .theorem-box p {
+        color: #fecdd3;
+    }
+    .math-display {
+        background: #1e293b;
+        color: #f1f5f9;
+        border-color: #475569;
+    }
+    .figure-container {
+        background: #ffffff;
+        border-color: #4b5563;
+    }
+    .figure-caption {
+        color: #374151;
+    }
+    .toc-item a {
+        color: #e5e7eb;
+    }
+}
